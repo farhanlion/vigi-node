@@ -1,10 +1,13 @@
 const db = require("../models");
-const Order = db.Order;
-const Product = db.Product;
-const OrderItem = db.OrderItem
+const Video = db.Video;
 
 exports.index = function (params) {
   return async function (req, res) {
-        res.render("index")
+        const videos = await Video.findAll().then()
+        console.log(videos)
+        res.render('index', {
+          cloudinary: params.cloudinary,
+          videos: videos
+        })
     } 
 }

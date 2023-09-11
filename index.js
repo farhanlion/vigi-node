@@ -1,7 +1,20 @@
 const { Sequelize } = require('sequelize');
 
-const port = process.env.PORT || 8083;
+require('dotenv').config();
+
+var cloudinary = require('cloudinary');
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET,
+  secure: true
+});
+
+
+
+const port = process.env.PORT || 8084;
 const express = require("express");
+
 
 const app = express();
 
@@ -14,10 +27,18 @@ app.set('view engine', 'ejs');
 
 // db setup
 var mysql = require('mysql2/promise');
-var sequelize = new Sequelize("ecom", "root", "Password_123", {
+var sequelize = new Sequelize("vigi", "user","password",{
   host: 3306,
   dialect: 'mysql'
 });
+(async () => {
+	try {
+	  await sequelize.authenticate();
+	  console.log('Connection has been established successfully.');
+	} catch (error) {
+	  console.error('Unable to connect to the database:', error);
+	}
+})();
 
 const params = {}
 params.app = app
