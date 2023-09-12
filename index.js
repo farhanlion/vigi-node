@@ -24,6 +24,7 @@ app.set("views", [__dirname + "/views", __dirname + "/views/partials"]);
 app.set("view engine", "ejs");
 app.engine("html", require("ejs").renderFile);
 app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/public'));
 
 // db setup
 var mysql = require('mysql2/promise');

@@ -1,20 +1,45 @@
-<link href="https://unpkg.com/cloudinary-video-player@1.9.14/dist/cld-video-player.min.css" rel="stylesheet">
-<script src="https://unpkg.com/cloudinary-video-player@1.9.14/dist/cld-video-player.min.js" 
-    type="text/javascript"></script>
+<head>
+    <link href="https://unpkg.com/cloudinary-video-player@1.9.14/dist/cld-video-player.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/cloudinary-video-player@1.9.14/dist/cld-video-player.min.js" 
+        type="text/javascript"></script>
 
 
-<h1>adsad</h1>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+
+
+<%- include('./partials/header') %>
+
+
 <% for (var i=0;i<videos.length;i++) {%>
     <video
-    id="demo-player"
-    controls
-    autoplay
-    source = <%= videos[i].link %>
+    
+    source = <%= videos[i].public_id %>
     class="cld-video-player">
     </video>
 <% } %>
 
 <script>
-    
-    var players = cloudinary.videoPlayers('.cld-video-player',{ cloud_name: 'dwoyqflfa' });
+    var players = cloudinary.videoPlayers('.cld-video-player', {
+        cloud_name:'dwoyqflfa',
+
+        width:'600px',
+        colors: {
+            base: "#052b6b",
+            accent: "#ffffff",
+            text: "#ffffff"
+        },
+        controls: true,
+        showJumpControls: true,
+        // posterOptions:{
+        //     publicId:'https://res.cloudinary.com/dwoyqflfa/video/upload/v1694522052/movements/olwign3ph1qnfprbpqvt.mp4',
+
+        //     // publicId: 'https://assets.agu.org/image/upload/c_limit,w_642/v1/aguorg-fm21/NOLA%20Depositphotos_117585154_xl-2015_blue.jpg', 
+        //     }
+    })
+
+
 </script>

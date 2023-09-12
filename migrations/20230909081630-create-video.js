@@ -14,6 +14,9 @@ module.exports = {
       },
       title: {
         type: Sequelize.STRING
+      }, 
+      public_id:{
+        type: Sequelize.STRING
       },
       area: {
         type: Sequelize.STRING

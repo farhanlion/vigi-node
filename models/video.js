@@ -20,6 +20,9 @@ module.exports = (sequelize, DataTypes) => {
     title: {
       type: DataTypes.STRING
     },
+    public_id:{
+      type: DataTypes.STRING
+    },
     area: {
       type: DataTypes.STRING
     },

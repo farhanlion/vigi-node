@@ -13,8 +13,6 @@ module.exports = (params) => {
   router.route("/movementDetected").post(jsonParser,videos.new(params))
 
   params.app.use('/', router);
-
-
 }
 
 

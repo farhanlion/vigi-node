@@ -47,6 +47,7 @@ exports.new = function (params) {
         
         console.log(req.body)
         const video = Video.build({
+          public_id: req.body.public_id,
           link: req.body.videolink,
           timestamp: req.body.timestamp,
           description: req.body.movements,
