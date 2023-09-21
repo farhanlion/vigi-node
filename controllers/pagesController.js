@@ -7,10 +7,13 @@ exports.index = function (params) {
       order: [
         ['createdAt', 'DESC'],
       ]})
+
     res.render('index', {
       cloudinary: params.cloudinary,
       videos: videos
     })
   }
 }
+
+
 

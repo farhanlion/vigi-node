@@ -11,6 +11,7 @@ module.exports = (params) => {
 
   router.route("/").get(pages.index(params));
   router.route("/movementDetected").post(jsonParser,videos.new(params))
+  router.route("/deletevideo/:id").post(jsonParser,videos.delete(params))
 
   params.app.use('/', router);
 }

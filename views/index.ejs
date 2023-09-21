@@ -13,14 +13,34 @@
 
 <%- include('./partials/header') %>
 
+<div class="video-containers">
+    <% for (var i=0;i<videos.length;i++) {%>
+        <div class="video-container">
+            <video
+            source = <%= videos[i].public_id %>
+            class="cld-video-player">
+        </video>
+        <h3>
+            <%= videos[i].title%>
+        </h3>
+        <p>
+            <% for(var j=0;j<videos[i].description.length;j++) {%>
+            <% if (videos[i].description[j].location == null) {%>
+                Unknown location
+            <% } else {%>
 
-<% for (var i=0;i<videos.length;i++) {%>
-    <video
-    
-    source = <%= videos[i].public_id %>
-    class="cld-video-player">
-    </video>
-<% } %>
+            <%= videos[i].description[j].location %>
+            <% } %> :
+            <%= videos[i].description[j].object_size %> object,  
+            <% } %>
+        </p>
+        <form action="/deletevideo/ <%=videos[i].id%>" method="post">
+            <button class="delbtn">
+              Delete</button>
+          </form>
+    </div>
+    <% } %>
+</div>
 
 <script>
     var players = cloudinary.videoPlayers('.cld-video-player', {
