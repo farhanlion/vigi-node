@@ -9,6 +9,7 @@ Change the config/config.json file and add in your mysql username and password.
 ## Once mysql is set up, you can run the application with:
 
 npx sequelize-cli db:create
+
 npx sequelize-cli db:migrate
 
 node index.js
