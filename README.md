@@ -1,12 +1,12 @@
 # vigi-node
 
-Set up the database configureations. 
-Change the db user name and password to your mysql in index.js
+## Set up the database configureations. 
 
-Change the config.json file and add in your usernams and passwords
+Change the db user name and password to your mysql when initializing Sequelize in index.js
 
+Change the config/config.json file and add in your mysql username and password.
 
-Run with: 
+Once mysql is set up, you can run the application with:
 
 npx sequelize-cli db:create
 npx sequelize-cli db:migrate
